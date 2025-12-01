@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> CEEP - Streaming de Cursos</title>
+    <link rel="preload" href="assents/css/base.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="assents/css/base.css">
+    </noscript>
+</head>
+
+<body>
+    <header>
+        <h1>CEEP - Streaming de Cursos</h1>
+
+        <div class="header-controls">
+            <search-bar></search-bar>
+
+            <category-filter></category-filter>
+        </div>
+    </header>
+
+    <main id="catalog-container"></main>
+
+    <div id="loading-spinner" class="hidden">
+        <div class="spinner"></div>
+    </div>
+
+    <div id="video-modal" class="hidden">
+        <div id="modal-content">
+            <span id="modal-close">✖</span>
+            <iframe id="video-frame" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 CEEP - Streaming de Cursos</p>
+    </footer>
+
+    <script type="module">
+        import "./assents/js/components.js";
+        import { loadCatalog } from "./assents/js/catalog.js";
+        import { initPlayerEvents } from "./assents/js/player.js";
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadCatalog();
+            initPlayerEvents();
+        });
+    </script>
+
+</body>
+
+</html>
