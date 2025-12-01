@@ -1,0 +1,160 @@
+{
+  "videos": [
+    {
+      "id": 1,
+      "title": "A Jornada do Front-End",
+      "year": 2024,
+      "category": "Documentário",
+      "thumbnail": "./assents/img/jornada.png",
+      "videoUrl": "https://www.youtube.com/watch?v=LD34B0QsIZk",
+      "description": "Um documentário sobre a evolução do desenvolvimento front-end e suas principais transformações ao longo dos anos."
+    },
+    {
+      "id": 2,
+      "title": "CSS Grid na Prática",
+      "year": 2023,
+      "category": "Tutorial",
+      "thumbnail": "./assents/img/css.png",
+      "videoUrl": "https://www.youtube.com/watch?v=IpGFoNYJJU8",
+      "description": "Aprenda a criar layouts modernos com CSS Grid, explorando recursos bidimensionais e técnicas avançadas."
+    },
+    {
+      "id": 3,
+      "title": "PHP com MySQL",
+      "year": 2024,
+      "category": "Curso",
+      "thumbnail": "./assents/img/php.png",
+      "videoUrl": "https://www.youtube.com/watch?v=3zUhy1BeWM4",
+      "description": "Curso completo de PHP com MySQL para criar aplicações web dinâmicas, seguras e estruturadas."
+    },
+    {
+      "id": 4,
+      "title": "JAVA - AULA #01",
+      "year": 2025,
+      "category": "Curso",
+      "thumbnail": "./assents/img/java1.png",
+      "videoUrl": "https://www.youtube.com/watch?v=nODe5lFcGpg",
+      "description": "Primeira aula do curso de Java para iniciantes, abordando conceitos essenciais da linguagem."
+    },
+    {
+      "id": 5,
+      "title": "JAVA - AULA #02",
+      "year": 2025,
+      "category": "Curso",
+      "thumbnail": "./assents/img/java2.png",
+      "videoUrl": "https://www.youtube.com/watch?v=nODe5lFcGpg",
+      "description": "Continuação do curso de Java, aprofundando conceitos básicos e práticas de programação."
+    },
+    {
+      "id": 6,
+      "title": "JAVA - AULA #03",
+      "year": 2025,
+      "category": "Curso",
+      "thumbnail": "./assents/img/java3.png",
+      "videoUrl": "https://www.youtube.com/watch?v=nODe5lFcGpg",
+      "description": "Aula introdutória sobre estruturas e lógica de programação utilizando Java."
+    },
+    {
+      "id": 7,
+      "title": "JAVA - AULA #04",
+      "year": 2025,
+      "category": "Curso",
+      "thumbnail": "./assents/img/java4.png",
+      "videoUrl": "https://www.youtube.com/watch?v=nODe5lFcGpg",
+      "description": "Exploração de recursos intermediários da linguagem Java para construção de aplicações."
+    },
+
+
+
+    {
+      "id": 8,
+      "title": "Introdução ao React",
+      "year": 2024,
+      "category": "Curso",
+      "thumbnail": "./assents/img/react1.png",
+      "videoUrl": "https://www.youtube.com/watch?v=Ke90Tje7VS0",
+      "description": "Aprenda os fundamentos do React e entenda como funcionam componentes, props e estados."
+    },
+    {
+      "id": 9,
+      "title": "React Hooks Na Prática",
+      "year": 2024,
+      "category": "Tutorial",
+      "thumbnail": "./assents/img/react2.png",
+      "videoUrl": "https://www.youtube.com/watch?v=f687hBjwFcM",
+      "description": "Um guia prático sobre os principais hooks do React e como utilizá-los em projetos reais."
+    },
+    {
+      "id": 10,
+      "title": "Python para Iniciantes",
+      "year": 2023,
+      "category": "Curso",
+      "thumbnail": "./assents/img/python1.png",
+      "videoUrl": "https://www.youtube.com/watch?v=S9uPNppGsGo",
+      "description": "Curso completo para iniciantes aprenderem Python de forma simples e objetiva."
+    },
+    {
+      "id": 11,
+      "title": "APIs REST com Node.js",
+      "year": 2024,
+      "category": "Tutorial",
+      "thumbnail": "./assents/img/node1.png",
+      "videoUrl": "https://www.youtube.com/watch?v=fBNz5xF-Kx4",
+      "description": "Aprenda a criar APIs REST usando Node.js e Express de forma prática e direta."
+    },
+    {
+      "id": 12,
+      "title": "Banco de Dados MySQL",
+      "year": 2023,
+      "category": "Curso",
+      "thumbnail": "./assents/img/mysql.png",
+      "videoUrl": "https://www.youtube.com/watch?v=HXV3zeQKqGY",
+      "description": "Curso completo para aprender modelagem, consultas SQL e boas práticas no MySQL."
+    },
+    {
+      "id": 13,
+      "title": "Docker para Desenvolvedores",
+      "year": 2024,
+      "category": "Tutorial",
+      "thumbnail": "./assents/img/docker.png",
+      "videoUrl": "https://www.youtube.com/watch?v=Gjnup-PuquQ",
+      "description": "Aprenda a criar e gerenciar containers com Docker para ambientes modernos de desenvolvimento."
+    },
+    {
+      "id": 14,
+      "title": "Git e GitHub Essencial",
+      "year": 2023,
+      "category": "Curso",
+      "thumbnail": "./assents/img/git.png",
+      "videoUrl": "https://www.youtube.com/watch?v=2alg7MQ6_sI",
+      "description": "Guia completo sobre versionamento de código com Git e colaboração no GitHub."
+    },
+    {
+      "id": 15,
+      "title": "Design Responsivo com CSS",
+      "year": 2024,
+      "category": "Tutorial",
+      "thumbnail": "./assents/img/responsive.png",
+      "videoUrl": "https://www.youtube.com/watch?v=srvUrASNj0s",
+      "description": "Como criar interfaces responsivas adaptáveis a qualquer tamanho de tela usando CSS moderno."
+    },
+    {
+      "id": 16,
+      "title": "Segurança Web Básica",
+      "year": 2025,
+      "category": "Documentário",
+      "thumbnail": "./assents/img/security.png",
+      "videoUrl": "https://www.youtube.com/watch?v=U6p2pQCFRuA",
+      "description": "Documentário explicando vulnerabilidades comuns e boas práticas de segurança na web."
+    },
+    {
+      "id": 17,
+      "title": "Introdução ao TypeScript",
+      "year": 2024,
+      "category": "Curso",
+      "thumbnail": "./assents/img/typescript.png",
+      "videoUrl": "https://www.youtube.com/watch?v=BwuLxPH8IDs",
+      "description": "Aprenda TypeScript do zero e descubra como tipagem melhora aplicações JavaScript."
+    }
+  ]
+}

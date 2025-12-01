@@ -1,0 +1,375 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: Arial, sans-serif;
+    /* #111 - Fundo bem escuro */
+    background: #111;
+    color: #fff;
+    /* Garante que o footer fique no final se houver pouco conteúdo */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER */
+header {
+    padding: 25px 20px;
+    background: #181818;
+    text-align: center;
+    border-bottom: 2px solid #222;
+}
+
+header h1 {
+    font-size: 32px;
+    color: #e50914;
+    /* Cor Netflix-like para destaque */
+    margin-bottom: 15px;
+}
+
+/* NOVO: Controles do Header com Flexbox */
+.header-controls {
+    display: flex;
+    justify-content: center;
+    /* Centraliza a barra de busca e o filtro */
+    flex-wrap: wrap;
+    /* Quebra a linha em telas muito pequenas */
+    gap: 15px;
+    /* Espaçamento entre os componentes */
+}
+
+/* INPUTS */
+search-bar input,
+category-filter select {
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    font-size: 15px;
+    background-color: #333;
+    /* Fundo mais escuro para combinar */
+    color: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Para o placeholder */
+search-bar input::placeholder {
+    color: #bbb;
+}
+
+search-bar input:focus,
+category-filter select:focus {
+    outline: none;
+    border-color: #e50914; /* Cor Netflix-like para foco */
+    box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.5); /* Sombra para indicar foco */
+}
+
+search-bar input {
+    width: 260px;
+    max-width: 100%;
+    /* Ajuste para telas menores */
+}
+
+category-filter select {
+    width: 180px;
+}
+
+/* CATÁLOGO */
+#catalog-container {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 28px;
+    padding: 28px;
+}
+
+/* CARDS */
+.video-card {
+    padding: 10px;
+    border-radius: 10px;
+    background: #1e1e1e;
+    color: #ddd;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+    /* Manter altura mínima para consistência 
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;*/
+    min-height: 280px; /* Altura mínima para padronizar cards */
+}
+
+.video-card:hover,
+.video-card:focus-within {
+    transform: scale(1.04);
+    box-shadow: 0 0 15px rgba(229, 9, 20, 0.7);
+    outline: none; /* Remover o outline padrão em navegadores */
+}
+
+.video-card h3 {
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 5px; /* Adicionado para espaçamento */
+    font-size: 18px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    line-height: 1.3; /* Melhorar legibilidade */
+}
+
+.video-card p {
+    font-size: 14px;
+    color: #aaa;
+    flex-grow: 0;
+    flex-shrink: 0;
+    line-height: 1.5; /* Melhorar legibilidade */
+    margin-bottom: 5px; /* Adicionado para espaçamento entre parágrafos */
+    text-align: justify; /* Adicionado para justificar o texto */
+}
+
+/* Wrapper para a imagem e overlay */
+.video-thumbnail-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    line-height: 0;
+    /* Mantenho uma altura decente para a área de visualização */
+    height: 180px;
+    /* Adicionando o background do card para preencher as 'barras' */
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+/* IMAGENS AJUSTADAS */
+.video-card img {
+    width: 100%;
+    display: block;
+    /* MUDANÇA CRÍTICA: De 'cover' para 'contain' */
+    object-fit: contain;
+    height: 100%;
+}
+
+
+/* OVERLAY PLAY */
+.video-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+.video-card:hover .video-overlay {
+    opacity: 1;
+}
+
+.play-icon {
+    font-size: 55px;
+    color: white;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+/* MODAL PLAYER */
+#video-modal.hidden {
+    display: none;
+}
+
+#video-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    background: #000;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#modal-close {
+    color: #fff;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 1001;
+    transition: color 0.2s, transform 0.2s;
+}
+
+#modal-close:hover,
+#modal-close:focus {
+    color: #e50914; /* Cor Netflix-like no hover/focus */
+    transform: scale(1.1); /* Um pequeno aumento no tamanho */
+    outline: none;
+}
+
+#video-frame {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: 250px;
+    border-radius: 8px;
+    display: block;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #181818;
+    color: #aaa;
+}
+
+/* Responsividade (Melhoria) */
+@media (max-width: 550px) {
+    header h1 {
+        font-size: 28px;
+    }
+
+    search-bar input {
+        width: 100%;
+    }
+
+    category-filter select {
+        width: 100%;
+    }
+
+    #catalog-container {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    /* NOVO AJUSTE: Altura da imagem para telas menores */
+    .video-thumbnail-wrapper {
+        height: 150px;
+    }
+
+    .video-card h3 {
+        font-size: 16px;
+    }
+
+    .video-card p {
+        font-size: 12px;
+    }
+
+    #modal-content {
+        width: 95%;
+        padding: 5px;
+    }
+}
+
+@media (max-width: 400px) {
+    #catalog-container {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .video-card .video-description-text {
+        max-height: 3.6em; /* Aproximadamente 3 linhas de texto de 12px com line-height 1.5 */
+    }
+
+    .video-card .read-more-btn {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+}
+
+/* SPINNER DE CARREGAMENTO */
+#loading-spinner {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#loading-spinner.hidden {
+    display: none;
+}
+
+.spinner {
+    border: 8px solid #333;
+    border-top: 8px solid #e50914;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Descrição com "Ver Mais" */
+.video-description-wrapper {
+    margin-top: 5px;
+    /* Adicionado */
+    flex-grow: 1; /* Permite que a descrição ocupe espaço restante */
+    display: flex;
+    flex-direction: column;
+}
+
+.video-description-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    transition: max-height 0.3s ease-out;
+    text-align: justify;
+}
+
+.video-description-text.collapsed {
+    -webkit-line-clamp: 3; /* Limita a 3 linhas quando colapsado */
+    max-height: 4.5em; /* 3 linhas * 1.5 (line-height) */
+}
+
+.video-description-text:not(.collapsed) {
+    -webkit-line-clamp: unset; /* Remove o limite de linhas quando expandido */
+    max-height: none; /* Expande para o conteúdo total */
+}
+
+.read-more-btn {
+    background: none;
+    border: none;
+    color: #e50914;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0;
+    margin-top: 5px;
+    display: block;
+    text-align: left;
+    transition: color 0.2s;
+}
+
+.read-more-btn:hover,
+.read-more-btn:focus {
+    color: #ff3842;
+    text-decoration: underline;
+    outline: none;
+}
+
+.read-more-btn.hidden {
+    display: none;
+}
